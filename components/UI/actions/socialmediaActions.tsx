@@ -19,13 +19,13 @@ const SocialMediaActions: FunctionComponent<SocialMediaActionsProps> = ({
   useEffect(() => {
     if (isStarkRootDomain(identity?.domain.domain)) {
       identity?.verifier_data?.forEach((verifier) => {
-        if (cairo.felt(verifier.field) === cairo.felt("twitter")) {
+        if (cairo.felt(verifier.field) === cairo.felt("twitter") && verifier.data) {
           setTwitter(verifier.data);
         }
-        if (cairo.felt(verifier.field) === cairo.felt("discord")) {
+        if (cairo.felt(verifier.field) === cairo.felt("discord") && verifier.data) {
           setDiscord(verifier.data);
         }
-        if (cairo.felt(verifier.field) === cairo.felt("github")) {
+        if (cairo.felt(verifier.field) === cairo.felt("github") && verifier.data) {
           setGithub(verifier.data);
         }
       });
